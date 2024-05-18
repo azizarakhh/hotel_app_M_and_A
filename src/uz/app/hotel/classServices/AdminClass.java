@@ -36,7 +36,12 @@ public class AdminClass implements AdminService {
         while (true){
             switch (menu()){
                 case 0 -> {
+<<<<<<< HEAD
                     System.out.println("See you soon, " + currentUser);
+=======
+                    System.out.printf("See you soon, %s", currentUser);
+                    currentUser = null;
+>>>>>>> 43d1cea7812d8fb7db1bebe48ddca1b3cba59f6f
                     return;
                 }
                 case 1 -> addHotel();
