@@ -38,7 +38,7 @@ public class AdminClass implements AdminService {
         while (true){
             switch (menu()){
                 case 0 -> {
-                    System.out.println("See you soon, ");
+                    System.out.printf("See you soon, %s", currentUser);
                     currentUser = null;
                     return;
                 }
