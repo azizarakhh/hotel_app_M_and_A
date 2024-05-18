@@ -3,7 +3,7 @@ package uz.app.hotel.entity;
 import java.util.UUID;
 
 public class Hotel {
-    private final String  id=UUID.randomUUID().toString();
+    private final String  id = UUID.randomUUID().toString();
     private String name;
     private Location location;
     private Integer floors;
@@ -14,6 +14,10 @@ public class Hotel {
         this.location = location;
         this.floors = floors;
         this.roomsCount = roomsCount;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public Integer getFloors() {
