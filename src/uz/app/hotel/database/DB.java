@@ -1,6 +1,5 @@
 package uz.app.hotel.database;
 
-import uz.app.hotel.service.AdminService;
 
 public class DB {
     private static DB db ;
