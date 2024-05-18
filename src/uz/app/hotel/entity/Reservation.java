@@ -17,7 +17,8 @@ public class Reservation {
     private Boolean earlierFinished;
     private List<User> users = new ArrayList<>();
 
-
+    public Reservation() {
+    }
 
     public Reservation(User user, Hotel hotel, Integer floor, Integer room, LocalDate startDate, LocalDate endDate) {
         this.user = user;

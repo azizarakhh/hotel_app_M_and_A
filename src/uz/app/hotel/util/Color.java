@@ -1,4 +1,4 @@
-package uz.app.hotel.Utils;
+package uz.app.hotel.util;
 
 public class Color {
     public static final String BLACK = "\033[0;30m";   // BLACK
