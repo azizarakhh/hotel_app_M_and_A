@@ -12,14 +12,15 @@ import java.util.List;
 import java.util.Set;
 
 public class DB {
-
+    private static DB db ;
+    public static User currentUser = new User();
     public HashSet<String> ids = new HashSet<>();
     public Set<User> users=new HashSet<>();
+
     public Set<Hotel> hotels=new HashSet<>();
     public HashMap<Hotel, List<User>> hotelUsers = new HashMap<>();
     public HashMap<User, List<Hotel>> userOrders = new HashMap<>();
 
-    private static DB db;
     public static DB getInstance(){
         if (db==null) {
             db = new DB();

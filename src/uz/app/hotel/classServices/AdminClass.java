@@ -6,10 +6,11 @@ import uz.app.hotel.entity.Role;
 import uz.app.hotel.entity.User;
 import uz.app.hotel.service.AdminService;
 
+import static uz.app.hotel.database.DB.currentUser;
 import static uz.app.hotel.util.Utils.*;
 
 public class AdminClass implements AdminService {
-    User currentUser = null;
+
     HotelClass hotelClass = HotelClass.getInstance();
 
     public int menu(){
@@ -28,18 +29,19 @@ public class AdminClass implements AdminService {
         return nextInteger();
     }
 
-    public void current(User currentUser){
-        this.currentUser = currentUser;
-        service();
-    }
+
 
     @Override
     public void service() {
         while (true){
             switch (menu()){
                 case 0 -> {
+<<<<<<< HEAD
+                    System.out.println("See you soon, " + currentUser);
+=======
                     System.out.printf("See you soon, %s", currentUser);
                     currentUser = null;
+>>>>>>> 43d1cea7812d8fb7db1bebe48ddca1b3cba59f6f
                     return;
                 }
                 case 1 -> addHotel();

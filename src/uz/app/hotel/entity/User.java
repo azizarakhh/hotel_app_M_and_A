@@ -1,8 +1,6 @@
 package uz.app.hotel.entity;
 
-import uz.app.hotel.database.DB;
-
-import java.util.UUID;
+import java.util.List;
 
 import static java.util.UUID.randomUUID;
 
@@ -10,14 +8,26 @@ public class User {
     private final String  id= randomUUID().toString();
     private String username;
     private String password;
+    private List<Hotel> hotels;
+
+    public User() {
+    }
+
     private Double balance;
     private Role role;
 
     public User(String username, String password,Double balance, Role role) {
         this.username = username;
         this.password = password;
-        this.balance = balance;
-        this.role = role;
+
+
+    }
+
+    public List<Hotel> getHistory() {
+        return hotels;
+    }
+    public void setHistory(List<Hotel> hotels) {
+        hotels.add((Hotel) hotels);
     }
 
     public String getId() {
