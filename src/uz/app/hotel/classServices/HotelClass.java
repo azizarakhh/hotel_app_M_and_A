@@ -2,10 +2,13 @@ package uz.app.hotel.classServices;
 
 import uz.app.hotel.database.DB;
 import uz.app.hotel.entity.Hotel;
+import uz.app.hotel.entity.Location;
 import uz.app.hotel.service.HotelService;
 
 import java.util.List;
 import java.util.Objects;
+
+import static uz.app.hotel.util.Utils.*;
 
 public class HotelClass implements HotelService {
     DB db = DB.getInstance();
@@ -15,12 +18,12 @@ public class HotelClass implements HotelService {
         if (hotel != null) {
             for (Hotel h : db.hotels) {
                 if (Objects.equals(hotel, h)) {
+                    db.hotels.add(hotel);
                     return false;
                 }
             }
         }
         return true;
-        /// add
     }
 
     @Override
@@ -44,7 +47,43 @@ public class HotelClass implements HotelService {
 
     @Override
     public boolean edit(String id, Hotel hotel) {
+        switch (editMenu()){
+            case 0 -> {
+                return false;
+            }
+            case 1 -> {
+                System.out.println("Enter hotel name:");
+                String name = strScanner.nextLine();
+                hotel.setName(name);
+            }
+            case 2 -> {
+                System.out.println("Enter hotel location:");
+                Location location = Location.valueOf(strScanner.nextLine());
+                hotel.setLocation(location);
+            }
+            case 3 -> {
+                System.out.println("Enter hotel floor:");
+                Integer floor = nextInteger();
+                hotel.setFloors(floor);
+            }
+            case 4 -> {
+                System.out.println("Enter hotel room:");
+                Integer room = nextInteger();
+                hotel.setRoomsCount(room);
+            }
+        }
         return false;
+    }
+
+    private int editMenu(){
+        System.out.println("""
+                0 -> exit
+                1 -> change hotel name
+                2 -> change hotel location
+                3 -> change hotel floor
+                4 -> change hotel room
+                """);
+        return nextInteger();
     }
 
     @Override
@@ -54,7 +93,7 @@ public class HotelClass implements HotelService {
         } else {
             for (Hotel h : db.hotels) {
                 if (h.getId().equals(id)) {
-                    // delete
+                    db.hotels.remove(h);
                     return true;
                 }
             }
